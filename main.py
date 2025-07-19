@@ -11,7 +11,7 @@ reddit = praw.Reddit(
     user_agent=REDDIT_CONFIG['user_agent']
 )
 
-# --- 2. CHOOSE SUBREDDIT AND FETCH DATA ---
+# --- 2. SUBREDDIT AND FETCH DATA ---
 subreddit_name = 'dataisbeautiful'
 subreddit = reddit.subreddit(subreddit_name)
 
@@ -20,7 +20,7 @@ comments_list = []
 
 print(f"Scraping from r/{subreddit_name}...")
 
-# Fetch the 50 most recent posts [cite: 10]
+# Fetch the 50 most recent posts
 for post in subreddit.new(limit=50):
     # Extract post data as required [cite: 16]
     posts_list.append({
@@ -32,7 +32,7 @@ for post in subreddit.new(limit=50):
         'CreatedUTC': post.created_utc
     })
 
-    # Fetch up to 100 top-level comments for each post [cite: 11]
+    # Fetch up to 100 top-level comments for each post
     post.comments.replace_more(limit=0) # Removes "MoreComments" objects
     for comment in post.comments.list()[:100]:
         # Extract comment data as required [cite: 17]
@@ -47,7 +47,6 @@ for post in subreddit.new(limit=50):
 
 print("Scraping complete.")
 
-# --- 3. SAVE DATA TO CSV --- [cite: 14]
 # Create DataFrames
 posts_df = pd.DataFrame(posts_list)
 comments_df = pd.DataFrame(comments_list)
