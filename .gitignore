@@ -1,0 +1,25 @@
+# API Credentials and sensitive files
+config.py
+*.env
+.env
+
+# Data files
+*.csv
+*.db
+*.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
