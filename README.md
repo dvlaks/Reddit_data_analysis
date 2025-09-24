@@ -1,4 +1,4 @@
-# Reddit Scraping & Analysis Assessment
+# Reddit Scraping & Analysis 
 
 This project demonstrates data collection, cleaning, and analysis skills using Reddit as a real-world data source. The assessment consists of three interconnected tasks that progressively build upon each other.
 
